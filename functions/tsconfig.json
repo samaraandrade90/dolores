@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "lib", // Onde os arquivos compilados serão colocados
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2017", // Versão do JavaScript de saída
+    "allowJs": true,   // Permitir arquivos .js
+    "lib": [
+      "es2017"
+    ]
+  },
+  "compileOnSave": true,
+  "include": [
+    "*.ts",         // Se seus arquivos TS estiverem na raiz de functions
+    "*.js"          // Se seus arquivos JS estiverem na raiz de functions
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

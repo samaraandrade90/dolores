@@ -1,0 +1,1301 @@
+@custom-variant dark (&:is(.dark *));
+
+/* Simplified font setup using Google Fonts - no local files needed */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-size: 14px;
+  /* Robust font stack with Google Fonts first, then excellent fallbacks */
+  --font-family-primary: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --background: #ffffff;
+  --foreground: oklch(0.145 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #FBFBFB;
+  --primary-foreground: #030213;
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --linkinho: #7c3aed;
+  --linkinho-foreground: #5f25c4;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #FBFBFB;
+  --sidebar-primary-foreground: #030213;
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  /* Neutral Gray Dark Theme with Dolores Purple Accents */
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --card: #171717;
+  --card-foreground: #fafafa;
+  --popover: #171717;
+  --popover-foreground: #fafafa;
+  --primary: #222222;
+  --primary-foreground: #fafafa;
+  --secondary: #262626;
+  --secondary-foreground: #fafafa;
+  --muted: #1c1c1c;
+  --muted-foreground: #a3a3a3;
+  --accent: #262626;
+  --accent-foreground: #fafafa;
+  --linkinho: #bb86fc;
+  --linkinho-foreground: #8b5cf6;
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  --border: #404040;
+  --input: #222222;
+  --ring: #222222;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #222222;
+  --chart-2: #06b6d4;
+  --chart-3: #ef4444;
+  --chart-4: #d946ef;
+  --chart-5: #10b981;
+  --sidebar: #171717;
+  --sidebar-foreground: #fafafa;
+  --sidebar-primary: #222222;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #262626;
+  --sidebar-accent-foreground: #fafafa;
+  --sidebar-border: #262626;
+  --sidebar-ring: #222222;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  /* Clean font application with Google Fonts */
+  html {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-family-primary);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Apply font family consistently */
+  *,
+  *::before,
+  *::after {
+    font-family: inherit;
+  }
+
+  /* Ensure all UI elements use the primary font */
+  button,
+  input,
+  textarea,
+  select,
+  option,
+  label,
+  span,
+  div,
+  p,
+  h1, h2, h3, h4, h5, h6,
+  li,
+  td,
+  th,
+  legend,
+  fieldset {
+    font-family: var(--font-family-primary);
+  }
+
+  /* Component library overrides */
+  [data-radix-dialog-content],
+  [data-radix-popover-content],
+  [data-radix-dropdown-menu-content],
+  [data-radix-select-content],
+  [data-radix-tooltip-content],
+  [data-radix-hover-card-content],
+  [data-radix-context-menu-content],
+  [data-radix-navigation-menu-content] {
+    font-family: var(--font-family-primary);
+  }
+
+  /* Toast components */
+  [data-sonner-toaster],
+  [data-sonner-toast],
+  [data-toast] {
+    font-family: var(--font-family-primary);
+  }
+}
+
+/**
+ * Base typography with clean font application
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+      font-family: var(--font-family-primary);
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+      font-family: var(--font-family-primary);
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+      font-family: var(--font-family-primary);
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+      font-family: var(--font-family-primary);
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+      font-family: var(--font-family-primary);
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+      font-family: var(--font-family-primary);
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+      font-family: var(--font-family-primary);
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+      font-family: var(--font-family-primary);
+    }
+
+    textarea {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+      font-family: var(--font-family-primary);
+    }
+
+    select {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+      font-family: var(--font-family-primary);
+    }
+  }
+}
+
+/* Calendar Task Markers */
+@layer components {
+  .has-tasks-marker::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 4px;
+    background-color: #8b5cf6;
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
+  /* WeeklyCalendar task markers - flexible colored markers */
+  .weekly-calendar-day .task-marker {
+    height: 4px !important;
+    border-radius: 2px !important;
+    min-width: 4px !important;
+    transition: all 0.2s ease;
+  }
+
+  /* Multiple marker container */
+  .weekly-calendar-day .task-markers-container {
+    display: flex;
+    gap: 1px;
+    max-width: 24px;
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Hover effects for task markers */
+  .weekly-calendar-day:hover .task-marker {
+    opacity: 0.8;
+    transform: scaleY(1.2);
+  }
+
+  /* Single marker fills full width */
+  .weekly-calendar-day .task-marker.single {
+    width: 24px;
+  }
+
+  /* Two markers share space */
+  .weekly-calendar-day .task-marker.dual {
+    width: calc(50% - 0.5px);
+  }
+
+  /* Three markers share space */
+  .weekly-calendar-day .task-marker.triple {
+    width: calc(33.333% - 0.66px);
+  }
+
+  /* Four markers share space */
+  .weekly-calendar-day .task-marker.quad {
+    width: calc(25% - 0.75px);
+  }
+
+  /* View Mode Buttons - Purple Week Button When Selected */
+  .view-mode-buttons button[data-variant="default"]:nth-child(2) {
+    background-color: #8b5cf6 !important;
+    color: #ffffff !important;
+    border-color: #8b5cf6 !important;
+  }
+
+  .view-mode-buttons button[data-variant="default"]:nth-child(2):hover {
+    background-color: #7c3aed !important;
+    border-color: #7c3aed !important;
+  }
+
+  .view-mode-buttons button[data-variant="default"]:nth-child(2) svg {
+    color: #ffffff !important;
+  }
+
+  .view-mode-buttons button[data-variant="default"]:nth-child(2) span {
+    color: #ffffff !important;
+  }
+
+  /* Link Button Contrast Enhancement */
+  .dark button[data-variant="link"],
+  .dark .btn-link,
+  .dark [role="button"][data-variant="link"] {
+    color: #e5e7eb !important;
+  }
+
+  .dark button[data-variant="link"]:hover,
+  .dark .btn-link:hover,
+  .dark [role="button"][data-variant="link"]:hover {
+    color: #ffffff !important;
+  }
+
+  .dark button[data-variant="link"]:focus,
+  .dark .btn-link:focus,
+  .dark [role="button"][data-variant="link"]:focus {
+    color: #ffffff !important;
+    outline: 2px solid #8b5cf6;
+    outline-offset: 2px;
+  }
+
+  .dark button[data-variant="link"]:disabled,
+  .dark .btn-link:disabled,
+  .dark [role="button"][data-variant="link"]:disabled {
+    color: #6b7280 !important;
+    opacity: 0.5;
+  }
+
+  /* DARK MODE INPUT STANDARDIZATION - Based on design specs */
+  /* Global dark mode input styling */
+  .dark input,
+  .dark textarea,
+  .dark select {
+    background-color: #222222 !important;
+    border: 1px solid #404040 !important;
+    color: #fafafa !important;
+  }
+
+  .dark input:focus,
+  .dark textarea:focus,
+  .dark select:focus {
+    background-color: #222222 !important;
+    border-color: #404040 !important;
+    box-shadow: 0 0 0 3px rgba(64, 64, 64, 0.1) !important;
+  }
+
+  .dark input:hover,
+  .dark textarea:hover,
+  .dark select:hover {
+    background-color: #222222 !important;
+    border-color: #404040 !important;
+  }
+
+  /* Placeholder styling for dark mode */
+  .dark input::placeholder,
+  .dark textarea::placeholder {
+    color: #9ca3af !important;
+  }
+
+  /* ShadCN Select components dark mode - Enhanced for QuickAddTask consistency */
+  .dark [data-radix-select-trigger] {
+    background-color: #222222 !important;
+    border: 1px solid #404040 !important;
+    color: #fafafa !important;
+  }
+
+  .dark [data-radix-select-trigger]:hover {
+    background-color: #222222 !important;
+    border-color: #404040 !important;
+  }
+
+  .dark [data-radix-select-trigger]:focus {
+    background-color: #222222 !important;
+    border-color: #404040 !important;
+    box-shadow: 0 0 0 3px rgba(64, 64, 64, 0.1) !important;
+  }
+
+  /* QuickAddTask specific Select styling - categoria e frequência com mesmo fundo do valor */
+  .dark .quick-add-card [data-radix-select-trigger] {
+    background-color: #222222 !important;
+    border: 1px solid #404040 !important;
+    color: #fafafa !important;
+  }
+
+  .dark .quick-add-card [data-radix-select-trigger]:hover {
+    background-color: #222222 !important;
+    border-color: #404040 !important;
+  }
+
+  .dark .quick-add-card [data-radix-select-trigger]:focus {
+    background-color: #222222 !important;
+    border-color: #404040 !important;
+    box-shadow: 0 0 0 3px rgba(64, 64, 64, 0.1) !important;
+  }
+
+  /* AuthModal specific styling for dark mode consistency */
+  .dark .auth-modal input,
+  .dark .auth-modal textarea,
+  .dark .auth-modal select {
+    background-color: #222222 !important;
+    border: 1px solid #404040 !important;
+    color: #fafafa !important;
+  }
+
+  .dark .auth-modal input:focus,
+  .dark .auth-modal textarea:focus,
+  .dark .auth-modal select:focus {
+    background-color: #222222 !important;
+    border-color: #404040 !important;
+    box-shadow: 0 0 0 3px rgba(64, 64, 64, 0.1) !important;
+  }
+
+  .dark .auth-modal input::placeholder,
+  .dark .auth-modal textarea::placeholder {
+    color: #9ca3af !important;
+  }
+
+  /* Google Login Button Styling */
+  .google-login-btn {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #dadce0;
+    color: #3c4043;
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .google-login-btn:hover {
+    background: #f8f9fa;
+    border-color: #dadce0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .google-login-btn:focus {
+    background: #ffffff;
+    border-color: #4285f4;
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+  }
+
+  .google-login-btn:active {
+    background: #f1f3f4;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .google-login-btn:disabled {
+    background: #f8f9fa;
+    color: #9aa0a6;
+    border-color: #f8f9fa;
+    cursor: not-allowed;
+  }
+
+  /* Dark mode Google login button */
+  .dark .google-login-btn {
+    background: #2d2d2d;
+    border: 1px solid #404040;
+    color: #e8eaed;
+  }
+
+  .dark .google-login-btn:hover {
+    background: #353535;
+    border-color: #404040;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .dark .google-login-btn:focus {
+    background: #2d2d2d;
+    border-color: #4285f4;
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.3);
+  }
+
+  .dark .google-login-btn:active {
+    background: #262626;
+  }
+
+  .dark .google-login-btn:disabled {
+    background: #1f1f1f;
+    color: #5f6368;
+    border-color: #2d2d2d;
+  }
+
+  /* AuthModal Google button specific styling */
+  .auth-modal .google-login-btn {
+    font-size: 14px;
+    padding: 12px 16px;
+    height: 44px;
+  }
+
+  .auth-modal .google-login-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Animated Dot Grid Background Styles - UPDATED WITH NEW COLORS */
+  .dot-grid-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+    background: #ffffff;
+  }
+
+  .dark .dot-grid-background {
+    background: #000000;
+  }
+
+  /* SVG container optimization */
+  .dot-grid-background svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible !important;
+    display: block;
+  }
+
+  /* NEW COLORS - Light mode dots: #D3D3D3 */
+  .dot-grid-background svg circle {
+    fill: #D3D3D3;
+    transition: fill 0.3s ease;
+  }
+
+  /* NEW COLORS - Dark mode dots: #515151 */
+  .dark .dot-grid-background svg circle {
+    fill: #515151;
+  }
+
+  /* Dot animation performance optimizations - FIXED SIZING */
+  .dot-grid-background svg circle {
+    cursor: inherit;
+    will-change: cx, cy;
+    vector-effect: non-scaling-stroke;
+    /* FIXED: Ensure dots maintain exactly 2px radius */
+    r: 2px !important;
+  }
+
+  /* Container performance optimizations */
+  .dot-grid-background {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transform: translateZ(0);
+  }
+
+  .dot-grid-background svg {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  /* Accessibility improvements for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .dot-grid-background svg circle {
+      transition: none;
+      will-change: auto;
+    }
+    
+    .dot-grid-background {
+      will-change: auto;
+    }
+    
+    .dot-grid-background svg {
+      will-change: auto;
+    }
+  }
+
+  /* Material Design Toast/Snackbar Styles - FIXED WITH HIGH SPECIFICITY */
+  
+  /* Force override all Sonner variables globally */
+  [data-sonner-toaster] {
+    --normal-bg: transparent !important;
+    --normal-text: transparent !important;
+    --normal-border: transparent !important;
+    --success-bg: transparent !important;
+    --success-text: transparent !important;
+    --success-border: transparent !important;
+    --error-bg: transparent !important;
+    --error-text: transparent !important;
+    --error-border: transparent !important;
+    --warning-bg: transparent !important;
+    --warning-text: transparent !important;
+    --warning-border: transparent !important;
+    --info-bg: transparent !important;
+    --info-text: transparent !important;
+    --info-border: transparent !important;
+  }
+
+  /* Este é o CSS para o modo claro (padrão) - MAX SPECIFICITY */
+  [data-sonner-toaster] [data-sonner-toast].material-toast,
+  [data-toast].material-toast,
+  .material-toast {
+    font-family: var(--font-family-primary) !important;
+
+    /* Light mode: Fundo PRETO, texto BRANCO */
+    background: #262626 !important; /* Fundo preto */
+    background-color: #262626 !important;
+    color: #fafafa !important;     /* Texto branco */
+
+    border: none !important;
+    border-radius: 16px !important;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.4),
+                0 6px 10px 0 rgba(0, 0, 0, 0.28),
+                0 1px 18px 0 rgba(0, 0, 0, 0.24) !important;
+
+    max-width: 344px !important;
+    min-width: 288px !important;
+    margin: 0 16px !important;
+    padding: 14px 16px !important;
+
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 20px !important;
+
+    /* Force override all Sonner variables */
+    --normal-bg: #262626 !important;
+    --normal-text: #fafafa !important;
+    --normal-border: none !important;
+    --toast-bg: #262626 !important;
+    --toast-border: none !important;
+  }
+
+  /* Este é o CSS para o modo escuro - MAX SPECIFICITY */
+  .dark [data-sonner-toaster] [data-sonner-toast].material-toast,
+  .dark [data-toast].material-toast,
+  .dark .material-toast,
+  html.dark [data-sonner-toaster] [data-sonner-toast].material-toast,
+  html.dark [data-toast].material-toast,
+  html.dark .material-toast {
+    /* Dark mode: Fundo BRANCO, texto PRETO */
+    background: #ffffff !important; /* Fundo branco */
+    background-color: #ffffff !important;
+    color: #262626 !important;      /* Texto preto */
+
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+                0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                0 1px 18px 0 rgba(0, 0, 0, 0.12) !important;
+
+    /* Force override all Sonner variables for dark mode */
+    --normal-bg: #ffffff !important;
+    --normal-text: #262626 !important;
+    --normal-border: none !important;
+    --toast-bg: #ffffff !important;
+    --toast-border: none !important;
+  }
+
+  /* Additional safety overrides for all possible Sonner selectors */
+  [data-sonner-toast].material-toast * {
+    color: inherit !important;
+  }
+
+  .dark [data-sonner-toast].material-toast * {
+    color: inherit !important;
+  }
+
+  /* Toast content styling - FIXED WITH PROPER INHERITANCE */
+  [data-sonner-toast].material-toast [data-description],
+  [data-toast].material-toast [data-description] {
+    display: none !important;
+  }
+
+  [data-sonner-toast].material-toast [data-title],
+  [data-toast].material-toast [data-title],
+  [data-sonner-toast].material-toast [data-content],
+  [data-toast].material-toast [data-content] {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: var(--font-family-primary) !important;
+    color: inherit !important;
+    text-align: left !important;
+  }
+
+  /* Ensure text color inheritance in light mode */
+  [data-sonner-toast].material-toast,
+  [data-sonner-toast].material-toast *,
+  [data-toast].material-toast,
+  [data-toast].material-toast * {
+    color: #fafafa !important;
+  }
+
+  /* Ensure text color inheritance in dark mode */
+  .dark [data-sonner-toast].material-toast,
+  .dark [data-sonner-toast].material-toast *,
+  .dark [data-toast].material-toast,
+  .dark [data-toast].material-toast *,
+  html.dark [data-sonner-toast].material-toast,
+  html.dark [data-sonner-toast].material-toast *,
+  html.dark [data-toast].material-toast,
+  html.dark [data-toast].material-toast * {
+    color: #262626 !important;
+  }
+
+  /* Material Design action button styling - FIXED */
+  [data-sonner-toast].material-toast [data-button],
+  [data-toast].material-toast [data-button],
+  [data-sonner-toast].material-toast button,
+  [data-toast].material-toast button {
+    background: transparent !important;
+    border: none !important;
+    padding: 8px !important;
+    margin-left: 16px !important;
+    
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    font-family: var(--font-family-primary) !important;
+    text-transform: none !important;
+    letter-spacing: 0.75px !important;
+    
+    /* Light mode: purple accent - sempre visível */
+    color: #bb86fc !important;
+    
+    transition: background-color 0.2s ease !important;
+    border-radius: 8px !important;
+    min-width: 64px !important;
+    text-align: center !important;
+    cursor: pointer !important;
+  }
+
+  /* Dark mode: Keep purple accent (visible on white background) */
+  .dark [data-sonner-toast].material-toast [data-button],
+  .dark [data-toast].material-toast [data-button],
+  .dark [data-sonner-toast].material-toast button,
+  .dark [data-toast].material-toast button,
+  html.dark [data-sonner-toast].material-toast [data-button],
+  html.dark [data-toast].material-toast [data-button],
+  html.dark [data-sonner-toast].material-toast button,
+  html.dark [data-toast].material-toast button {
+    color: #8b5cf6 !important; /* Darker purple for better contrast on white */
+  }
+
+  /* Hover states */
+  [data-sonner-toast].material-toast [data-button]:hover,
+  [data-toast].material-toast [data-button]:hover,
+  [data-sonner-toast].material-toast button:hover,
+  [data-toast].material-toast button:hover {
+    background-color: rgba(187, 134, 252, 0.12) !important;
+  }
+
+  .dark [data-sonner-toast].material-toast [data-button]:hover,
+  .dark [data-toast].material-toast [data-button]:hover,
+  .dark [data-sonner-toast].material-toast button:hover,
+  .dark [data-toast].material-toast button:hover,
+  html.dark [data-sonner-toast].material-toast [data-button]:hover,
+  html.dark [data-toast].material-toast [data-button]:hover,
+  html.dark [data-sonner-toast].material-toast button:hover,
+  html.dark [data-toast].material-toast button:hover {
+    background-color: rgba(139, 92, 246, 0.12) !important;
+  }
+
+  /* Active states */
+  [data-sonner-toast].material-toast [data-button]:active,
+  [data-toast].material-toast [data-button]:active,
+  [data-sonner-toast].material-toast button:active,
+  [data-toast].material-toast button:active {
+    background-color: rgba(187, 134, 252, 0.24) !important;
+  }
+
+  .dark [data-sonner-toast].material-toast [data-button]:active,
+  .dark [data-toast].material-toast [data-button]:active,
+  .dark [data-sonner-toast].material-toast button:active,
+  .dark [data-toast].material-toast button:active,
+  html.dark [data-sonner-toast].material-toast [data-button]:active,
+  html.dark [data-toast].material-toast [data-button]:active,
+  html.dark [data-sonner-toast].material-toast button:active,
+  html.dark [data-toast].material-toast button:active {
+    background-color: rgba(139, 92, 246, 0.24) !important;
+  }
+
+  /* Remove default close button - FIXED */
+  [data-sonner-toast].material-toast [data-close-button],
+  [data-toast].material-toast [data-close-button],
+  [data-sonner-toast].material-toast [data-close],
+  [data-toast].material-toast [data-close] {
+    display: none !important;
+  }
+
+  /* Toast container layout - FIXED */
+  [data-sonner-toast].material-toast,
+  [data-toast].material-toast {
+    display: flex !important;
+    align-items: left !important;
+    justify-content: space-between !important;
+    text-align: left !important;
+  }
+
+  /* Remove icons and other default elements - FIXED */
+  [data-sonner-toast].material-toast [data-icon],
+  [data-toast].material-toast [data-icon],
+  [data-sonner-toast].material-toast svg:first-child,
+  [data-toast].material-toast svg:first-child {
+    display: none !important;
+  }
+
+  /* Ensure proper spacing - FIXED */
+  [data-sonner-toast].material-toast > div,
+  [data-toast].material-toast > div {
+    display: flex !important;
+    align-items: left !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    text-align: left !important;
+  }
+
+  /* Apply font to all toast elements - FIXED */
+  [data-sonner-toast].material-toast *,
+  [data-toast].material-toast *,
+  [data-sonner-toaster] *,
+  [data-sonner-toast] * {
+    font-family: var(--font-family-primary) !important;
+  }
+
+  /* Force Sonner toast positioning and appearance */
+  [data-sonner-toaster] {
+    --width: 356px !important;
+    --front-toast-height: auto !important;
+  }
+
+  [data-sonner-toaster] [data-sonner-toast] {
+    padding: 0 !important;
+    margin: 8px 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Safety override for all possible toast containers */
+  [data-sonner-toast].material-toast,
+  [data-toast].material-toast {
+    margin: 8px 16px !important;
+  }
+
+  /* Enhanced Drag and Drop Styles */
+  .draggable-task-list {
+    position: relative;
+  }
+
+  .draggable-task-container {
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .task-card-wrapper {
+    cursor: grab;
+    user-select: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
+  }
+
+  .task-card-wrapper:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark .task-card-wrapper:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  .task-card-wrapper:active {
+    cursor: grabbing;
+  }
+
+  /* Card being dragged - now invisible since we use custom preview */
+  .task-card-wrapper.being-dragged {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+  }
+
+  /* Task completion exit animation - more visible and longer */
+  .task-card-wrapper.completing {
+    animation: taskCompleteExit 800ms cubic-bezier(0.4, 0, 1, 1) forwards;
+    pointer-events: none;
+    background: rgba(34, 197, 94, 0.1);
+    border: 2px solid rgba(34, 197, 94, 0.3);
+  }
+
+  .dark .task-card-wrapper.completing {
+    background: rgba(16, 185, 129, 0.2);
+    border: 2px solid rgba(16, 185, 129, 0.4);
+  }
+
+  .draggable-task-container.completing {
+    overflow: hidden;
+  }
+
+  @keyframes taskCompleteExit {
+    0% {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+    25% {
+      opacity: 0.9;
+      transform: translateX(4px) scale(1.02);
+      background: rgba(34, 197, 94, 0.2);
+    }
+    50% {
+      opacity: 0.7;
+      transform: translateX(15px) scale(0.98);
+    }
+    75% {
+      opacity: 0.4;
+      transform: translateX(25px) scale(0.95);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(40px) scale(0.9);
+      height: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  /* Custom drag preview - floating with mouse */
+  .drag-preview {
+    pointer-events: none;
+    user-select: none;
+    cursor: grabbing;
+    filter: brightness(1.02);
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.25),
+      0 12px 24px rgba(0, 0, 0, 0.15),
+      0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .drag-preview {
+    filter: brightness(1.05);
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.5),
+      0 12px 24px rgba(0, 0, 0, 0.3),
+      0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Ghost preview - placeholder where item was */
+  .drag-ghost {
+    opacity: 0.3;
+    transform: scale(0.95);
+    filter: blur(1px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    pointer-events: none;
+    transition: all 0.2s ease;
+  }
+
+  /* Drop indicator line */
+  .drop-indicator {
+    height: 4px;
+    margin: 8px 0;
+    position: relative;
+    animation: dropIndicatorSlideIn 0.2s ease-out;
+  }
+
+  .drop-line {
+    height: 3px;
+    background: linear-gradient(90deg, 
+      var(--color-primary) 0%, 
+      rgba(187, 134, 252, 0.8) 50%, 
+      var(--color-primary) 100%);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .drop-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(255, 255, 255, 0.6) 50%, 
+      transparent 100%);
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes dropIndicatorSlideIn {
+    from {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    to {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  /* Drop target highlighting */
+  .draggable-task-container.drop-target .task-card-wrapper {
+    background: rgba(187, 134, 252, 0.05);
+    border: 2px dashed rgba(187, 134, 252, 0.3);
+    transform: scale(1.02);
+  }
+
+  .dark .draggable-task-container.drop-target .task-card-wrapper {
+    background: rgba(187, 134, 252, 0.1);
+    border: 2px dashed rgba(187, 134, 252, 0.4);
+  }
+
+  /* Enhanced hover state during drag */
+  .draggable-task-container.drop-hover {
+    transform: translateY(-2px);
+  }
+
+  /* Prevent text selection and interaction during drag */
+  .being-dragged * {
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* Prevent interactions during completion animation */
+  .completing * {
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* Add subtle pulsing to drop zones */
+  .drop-target {
+    animation: dropTargetPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes dropTargetPulse {
+    0%, 100% {
+      background-color: transparent;
+    }
+    50% {
+      background-color: rgba(187, 134, 252, 0.02);
+    }
+  }
+
+  .dark .drop-target {
+    animation: dropTargetPulseDark 2s ease-in-out infinite;
+  }
+
+  @keyframes dropTargetPulseDark {
+    0%, 100% {
+      background-color: transparent;
+    }
+    50% {
+      background-color: rgba(187, 134, 252, 0.05);
+    }
+  }
+
+  /* Smooth transitions for all states */
+  .draggable-task-container,
+  .task-card-wrapper,
+  .drop-indicator,
+  .drop-line {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Mobile touch improvements */
+  @media (hover: none) and (pointer: coarse) {
+    .task-card-wrapper:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    
+    .drag-preview {
+      transform: scale(1.08) rotate(2deg);
+    }
+  }
+
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    .draggable-task-container,
+    .task-card-wrapper,
+    .drop-indicator,
+    .drop-line {
+      transition: none;
+      animation: none;
+    }
+    
+    .drag-preview {
+      transform: scale(1.02);
+      animation: none;
+    }
+
+    /* Disable completion animation for users who prefer reduced motion */
+    .task-card-wrapper.completing {
+      animation: none;
+      opacity: 0.7;
+      transform: translateX(4px) scale(0.98);
+    }
+
+    /* Disable dot grid animation for reduced motion */
+    .dot-grid-background svg circle {
+      transition: none;
+      will-change: auto;
+    }
+    
+    .dot-grid-background {
+      will-change: auto;
+    }
+    
+    .dot-grid-background svg {
+      will-change: auto;
+    }
+  }
+
+  /* QuickAddTask Enhanced Contrast Styles - Updated per requirements */
+  .quick-add-card {
+    /* Light mode: Pure white background */
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    
+    /* Enhanced shadow for depth */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark .quick-add-card {
+    /* Dark mode: Dark background with white border per design specs */
+    background-color: #171717 !important;
+    border: 2px solid #ffffff !important;
+    
+    /* Enhanced shadow for dark mode */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  /* QuickAddTask inputs maintain the standard dark mode colors */
+  /* Inputs: background #222222, border #404040 - as per global rules above */
+}
+
+/* ShadCN UI components font application */
+@layer components {
+  /* Button components */
+  .btn,
+  [role="button"],
+  button,
+  .button {
+    font-family: var(--font-family-primary);
+  }
+
+  /* Input components */
+  .input,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  textarea,
+  select {
+    font-family: var(--font-family-primary);
+  }
+
+  /* Dialog and Modal components */
+  [data-radix-dialog-content] *,
+  [data-radix-alert-dialog-content] *,
+  .dialog-content *,
+  .modal-content * {
+    font-family: var(--font-family-primary);
+  }
+
+  /* Dropdown and Select components */
+  [data-radix-dropdown-menu-content] *,
+  [data-radix-select-content] *,
+  [data-radix-popover-content] *,
+  .dropdown-content *,
+  .select-content *,
+  .popover-content * {
+    font-family: var(--font-family-primary);
+  }
+
+  /* Card components */
+  .card,
+  .card-content,
+  .card-header,
+  .card-footer,
+  .card-title,
+  .card-description {
+    font-family: var(--font-family-primary);
+  }
+
+  /* Badge and Label components */
+  .badge,
+  .label,
+  .tag {
+    font-family: var(--font-family-primary);
+  }
+
+  /* Navigation components */
+  .nav,
+  .navbar,
+  .navigation,
+  .breadcrumb,
+  .tabs {
+    font-family: var(--font-family-primary);
+  }
+
+  /* Table components */
+  .table,
+  table,
+  th,
+  td,
+  .table-header,
+  .table-cell,
+  .table-row {
+    font-family: var(--font-family-primary);
+  }
+
+  /* Form components */
+  .form,
+  .form-control,
+  .form-label,
+  .form-description,
+  .form-message,
+  fieldset,
+  legend {
+    font-family: var(--font-family-primary);
+  }
+
+  /* Alert components */
+  .alert,
+  .alert-description,
+  .alert-title {
+    font-family: var(--font-family-primary);
+  }
+
+  /* Tooltip components */
+  [data-radix-tooltip-content] *,
+  .tooltip,
+  .tooltip-content {
+    font-family: var(--font-family-primary);
+  }
+}
