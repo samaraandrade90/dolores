@@ -1,7 +1,10 @@
-@custom-variant dark (&:is(.dark *));
-
 /* Simplified font setup using Google Fonts - no local files needed */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
   --font-size: 14px;

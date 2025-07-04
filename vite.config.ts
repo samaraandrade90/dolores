@@ -1,17 +1,20 @@
-import { defineConfig } from 'vite'
-import { fileURLToPath, URL } from 'url';
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
-import path from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
+import { fileURLToPath } from 'url'; // Importação necessária
+import path from 'path'; // Importação necessária
 
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react(), tailwindcss({
+      config: './tailwind.config.js',
+      input: './src/styles/globals.css',
+    })],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-     '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
+      '@components': path.resolve(__dirname, './src/components'), // Forma mais confiável
     }
   },
   optimizeDeps: {
